@@ -1,14 +1,26 @@
 # Import needed libraries and helper files
 import titlecard
-import cointoss
+import coin
 
 # Show ascii title card
 titlecard.displayTitlecard()
 
-# Coin Toss for who goes first
-cointoss.toss()
+# Assign player names, use a class for players
+class Player:
+    winCounter = 0
+    name = ""
 
-# Assign player names and turn order
+Player1, Player2 = Player(), Player()
+
+Player1.name = input("Enter Player 1's Name: ")
+Player2.name = input("Enter Player 2's Name: ")
+
+# Coin Toss for who goes first
+callIt = input(Player1.name, " please call either Heads or Tails")
+# verify input here, search a list of acceptable inputs?
+
+# flip the coin
+coinface = coin.toss()
 
 # Assign X or O to first player, other player gets the unselected choice
 
