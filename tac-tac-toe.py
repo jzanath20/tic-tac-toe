@@ -1,9 +1,9 @@
 # Import needed libraries and helper files
-import titlecard
+import menu
 import coin
 
 # Show ascii title card
-titlecard.displayTitlecard()
+menu.displayTitlecard()
 
 # Assign player names, use a class for players
 class Player:
