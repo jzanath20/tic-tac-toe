@@ -9,6 +9,7 @@ menu.displayTitlecard()
 class Player:
     winCounter = 0
     name = ""
+    shape = ''
 
 Player1, Player2 = Player(), Player()
 
@@ -16,14 +17,41 @@ Player1.name = input("Enter Player 1's Name: ")
 Player2.name = input("Enter Player 2's Name: ")
 
 # Coin Toss for who goes first
-callIt = input(Player1.name, " please call either Heads or Tails")
-# verify input here, search a list of acceptable inputs?
+coinTossCall = input(Player1.name + ", please call either Heads or Tails: ")
+
+correctCalls = ["Heads", "Tails", "heads", "tails"]
+
+while coinTossCall not in correctCalls:
+    coinTossCall = input("Please call either Heads or Tails: ")
 
 # flip the coin
 coinface = coin.toss()
 
-# Assign X or O to first player, other player gets the unselected choice
+if coinface == coinTossCall:
+    print(Player1.name, " will go first!")
+    startingPlayer = Player1
+    secondPlayer = Player2
+else:
+    print(Player2.name, " will go first!")
+    startingPlayer = Player2
+    secondPlayer = Player1
 
+# Assign X or O to first player, other player gets the unselected choice
+shapeChoice = input(startingPlayer.name + ", choose to play as X or O: ").upper()
+correctShapes = ['X', 'O']
+
+while shapeChoice not in correctShapes:
+    shapeChoice = input("Please input either X or O: ")
+
+startingPlayer.shape = shapeChoice
+
+if startingPlayer.shape == 'X':
+    secondPlayer.shape = 'O'
+else:
+    secondPlayer.shape = 'X'
+
+print(Player1.shape, Player1.name, Player1.winCounter)
+print(Player2.shape, Player2.name, Player2.winCounter)
 # Draw the board
 
 # Prompt for square 
